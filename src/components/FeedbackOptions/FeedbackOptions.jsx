@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 export class FeedbackOptions extends Component {
   render() {
-    const { options, onLeaveFeedback } = this.props;
+    const { buttonName, onLeaveFeedback } = this.props;
     return (
       <ButtonList>
-        {options.map(item => {
+        {buttonName.map(item => {
           return (
             <Button
               key={item}
@@ -24,6 +24,6 @@ export class FeedbackOptions extends Component {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.array.isRequired,
+  buttonName: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
