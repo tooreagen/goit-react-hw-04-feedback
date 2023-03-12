@@ -6,7 +6,7 @@ import { Notification } from './Notification/Notification';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 
-export const App = () => {
+export function App() {
   const [goodFeedback, setGoodFeedback] = useState(0);
   const [neutralFeedback, setNeutralFeedback] = useState(0);
   const [badFeedback, setBadFeedback] = useState(0);
@@ -35,6 +35,9 @@ export const App = () => {
 
   useEffect(() => {
     const totalFeedback = goodFeedback + neutralFeedback + badFeedback;
+    if (!totalFeedback) {
+      return;
+    }
     setTotalFeedback(totalFeedback);
     if (totalFeedback) {
       setPositiveFeedbackPct((goodFeedback / totalFeedback) * 100);
